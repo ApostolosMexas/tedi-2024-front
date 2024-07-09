@@ -6,8 +6,6 @@ import Auth from './views/Auth';
 const App = () => {
   return (
     <>
-      <div className="top-bar">
-      </div>
       <Routes>
         <Route path="/index/*" element={<Index />}/>
         <Route path="/auth/*" element={<Auth />}/>

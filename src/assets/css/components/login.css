@@ -1,0 +1,24 @@
+.login-container {
+  display: flex;
+  height: 100vh;
+}
+
+.login-card {
+  width: 30%;
+  margin: auto;
+}
+
+.login-header {
+  background-color: #fff !important;
+}
+
+.login-body {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.login-submit {
+  background-color: rgb(58, 58, 201) !important;
+  transition: all 0.1s ease !important;
+}
