@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Row, Col, Card, CardHeader, CardBody, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { useNavigate } from "react-router-dom";
+import { Row, Col, Card, CardHeader, CardBody, Form, Label, Input, Button } from 'reactstrap';
+import { apiCallsUser } from '../api/calls/user';
+import { apiCallsAuth } from '../api/calls/auth';
 import '../assets/css/components/signup.css';
 
 
@@ -7,6 +10,8 @@ const SignUp = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const handleEmailUpdate = (e) => {
     e.preventDefault();
@@ -23,8 +28,16 @@ const SignUp = (props) => {
     setConfirmPassword(e.target.value);
   };
 
-  const handleSubmit = () => {
-    console.log(email, password, confirmPassword);
+  const handleSubmit = async () => {
+    try {
+      await apiCallsUser.User.signup(email, password);
+      const response = await apiCallsAuth.Authentication.login(email, password);
+      const data = response.data;
+      localStorage.setItem("tedi-token", data.AccessToken);
+      navigate('/index/');
+    } catch (error) {
+      console.error("Error signing up:", error);
+    }
   };
 
   return (

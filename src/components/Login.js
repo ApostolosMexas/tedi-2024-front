@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { Row, Col, Card, CardHeader, CardBody, Form, Label, Input, Button } from 'reactstrap';
-import { apiCalls } from '../api/calls/auth';
+import { apiCallsAuth } from '../api/calls/auth';
 import '../assets/css/components/login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const handleEmailUpdate = (e) => {
     e.preventDefault();
@@ -19,8 +22,10 @@ const Login = () => {
 
   const handleSubmit = async () => {
     try{
-      const response = await apiCalls.Authentication.login(email, password);
-      console.log(response.data);
+      const response = await apiCallsAuth.Authentication.login(email, password);
+      const data = response.data;
+      localStorage.setItem("tedi-token", data.AccessToken);
+      navigate('/index/');
     } catch (error) {
       console.error("Error logging in:", error);
     }
