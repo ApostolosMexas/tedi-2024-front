@@ -1,19 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from './views/App/App';
-import './assets/css/index.css'
+import App from './App';
+// import './assets/css/index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const Index = () => {
-
-  return (
-    <>
-      <App />
-    </>
-  );
-};
-
 root.render(
-    <Index />
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
 );
