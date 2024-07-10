@@ -1,4 +1,6 @@
 import React, { useState }  from "react";
+import { Row, Col, Card, CardHeader, CardBody} from 'reactstrap';
+import UserTable from "../components/UserTable";
 
 const Admin = () => {
 
@@ -7,10 +9,10 @@ const Admin = () => {
             <Col>
             <Card>
                 <CardHeader>
-                <h4>Χρήστες</h4>
+                    <h4>Χρήστες</h4>
                 </CardHeader>
                 <CardBody >
-                <UserTable/>
+                    <UserTable/>
                 </CardBody>
             </Card>
             </Col>
