@@ -1,9 +1,11 @@
 import {MaterialReactTable} from 'material-react-table';
 import React, { useState, useEffect } from "react";
-import {apiCallsUser} from "../api/calls/user"
+// import {apiCallsUser} from "../api/calls/user"
 
 export const UserTable = (props) => {
-  const {} = props;
+    const [selectedRows, setSelectedRows] = useState([]);
+
+    const {} = props;
   const columns = [
     { accessorKey: 'id', header: 'ID', width: 70 , width: 130},
     { accessorKey: 'firstName', header: 'First name', width: 130 },
@@ -33,12 +35,14 @@ export const UserTable = (props) => {
 
   return (
     <MaterialReactTable
-      columns={columns}
-      data={rows}
-      enableColumnActions={false}
-      enableFullScreenToggle={false}
-      enableHiding={false}
-      enableDensityToggle={false}
+        enableRowSelection
+        // onRowSelectionChange={setSelectedRows}
+        columns={columns}
+        data={rows}
+        enableColumnActions={false}
+        enableFullScreenToggle={false}
+        enableHiding={false}
+        enableDensityToggle={false}
     />
   );
 };
