@@ -1,5 +1,5 @@
+import axios from "axios";
 import apiHelper from "../config/apiHelper";
-import { authAxios } from "../config/axiosUtils";
 import { showAlertError } from "../config/exceptionHandler";
 
 export const apiCallsAuth = {
@@ -12,7 +12,12 @@ export const apiCallsAuth = {
             username: email,
             password: password,
           },
-          authAxios
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+          })
         );
       } catch (error) {
         showAlertError("Η αυθεντικοποίηση ήταν ανεπιτυχής", error);

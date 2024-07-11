@@ -1,0 +1,52 @@
+.lg-react-element {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.post-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-body {
+  p {
+    margin: 0;
+  }
+}
+
+.media-container {
+  margin: 20px 0 0 0;
+}
+
+.post-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.show-comment-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: all 0.1s ease;
+  padding: 10px;
+  border-radius: 10px;
+  
+  p {
+    margin: 0;
+  }
+}
+
+.show-comment-container:hover {
+  cursor: pointer;
+  background-color: #f1f4f8;
+}
+
+.show {
+  background-color: #bbd3f3;
+}
+
+.show:hover {
+  background-color: #bbd3f3 !important;
+}

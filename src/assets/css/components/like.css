@@ -1,0 +1,25 @@
+.like-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: all 0.1s ease;
+  padding: 10px;
+  border-radius: 10px;
+  
+  p {
+    margin: 0;
+  }
+}
+
+.like-container:hover {
+  cursor: pointer;
+  background-color: #f1f4f8;
+}
+
+.liked {
+  background-color: #bbd3f3;
+}
+
+.liked:hover {
+  background-color: #bbd3f3 !important;
+}

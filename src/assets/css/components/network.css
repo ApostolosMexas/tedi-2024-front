@@ -1,0 +1,45 @@
+.network-container {
+  margin: 20px;
+  z-index: 10;
+  box-shadow: 0 0 0.5rem rgba(136, 152, 170, 0.075) !important;
+  min-height: 500px;
+}
+
+.network-container-header {
+  background-color: #fdfdff !important;
+  padding: 10px !important;
+}
+
+.network-items-container {
+  background-color: #fdfdff !important;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px !important;
+}
+
+.user-network-item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 10px 10px;
+  gap: 10px;
+  transition: all 0.1s ease;
+  border-radius: 5px;
+
+  img {
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    border: 1px solid gray;
+  }
+  
+  p {
+    margin: 0;
+  }
+}
+
+.user-network-item:hover {
+  cursor: pointer;
+  background-color: rgb(226, 227, 236);
+}
