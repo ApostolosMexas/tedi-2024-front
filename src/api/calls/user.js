@@ -19,5 +19,15 @@ export const apiCallsUser = {
         showAlertError("Η δημιουργία νέου χρήστη ήταν ανεπιτυχής", error);
       }
     },
+    get_all_users: async () => {
+      try {
+        return await apiHelper.get(
+          'users/',
+          apiBaseAxios
+        );
+      } catch (error) {
+        showAlertError("Αδυναμία φόρτωσης χρηστών", error);
+      }
+    },
   },
 };

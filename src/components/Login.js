@@ -64,6 +64,12 @@ const Login = () => {
             >
               Υποβολή
             </Button>
+            <Button
+                className='signup-btn'
+                onClick={navigate('/auth/signup')}
+              >
+              Εγγραφή
+            </Button>
           </CardBody>
         </Card>
       </Col>
