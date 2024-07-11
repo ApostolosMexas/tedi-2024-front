@@ -84,6 +84,20 @@ export const apiCallsUser = {
         );
       } catch (error) {
         showAlertError("Η ανάκτηση του χρονολογίου ήταν ανεπιτυχής", error);
+    get_all_users: async () => {
+      try {
+        return await apiHelper.get(
+          'users/',
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+      } catch (error) {
+        showAlertError("Αδυναμία φόρτωσης χρηστών", error);
       }
     },
   },
