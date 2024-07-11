@@ -33,28 +33,28 @@
   display: flex;
   gap: 15px;
   align-items: center;
-}
 
-.nav-link {
-  text-decoration: none;
-  border-radius: 10px;
-}
-
-.nav-link:link,
-.nav-link:visited,
-.nav-link:hover,
-.nav-link:active,
-.nav-link:link:hover,
-.nav-link:visited:hover,
-.nav-link:hover:hover,
-.nav-link:active:hover {
-  color: #fff;
-}
-
-.nav-link:hover {
-  background-color: rgb(47, 47, 175);
-}
-
-.nav-link.active {
-  background-color: rgb(41, 41, 151);
+  .nav-link {
+    text-decoration: none;
+    border-radius: 10px;
+  }
+  
+  .nav-link:link,
+  .nav-link:visited,
+  .nav-link:hover,
+  .nav-link:active,
+  .nav-link:link:hover,
+  .nav-link:visited:hover,
+  .nav-link:hover:hover,
+  .nav-link:active:hover {
+    color: #fff;
+  }
+  
+  .nav-link:hover {
+    background-color: rgb(47, 47, 175);
+  }
+  
+  .nav-link.active {
+    background-color: rgb(41, 41, 151);
+  }
 }

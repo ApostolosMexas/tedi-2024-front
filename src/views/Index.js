@@ -6,6 +6,7 @@ import { Navigate, Route, Routes, NavLink } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import Home from './Home';
 import NetworkView from './NetworkView';
+import User from '../components/User';
 import "../assets/css/index.css";
 
 const Index = ({}) => {
@@ -43,6 +44,7 @@ const Index = ({}) => {
         {/* <Route path='/login' element={<Login />} /> */}
         <Route path='/home' element={<Home />} />
         <Route path='/network' element={<NetworkView />} />
+        <Route path='/user/:id' element={<User />} />
         <Route path='*' element={<Navigate to="/index/home" replace />} />
       </Routes>
     </Container>

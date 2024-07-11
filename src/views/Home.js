@@ -1,18 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Col, Container, Row } from 'reactstrap';
 import Network from '../components/Network';
+import Timeline from '../components/Timeline';
 
 const Home = (props) => {
 
   return (
-    <Container className='main-content'>
+    <Container className='main-content' fluid>
       <Row>
         <Col xs={3}>
           <Network />
         </Col>
-        <Col>
-          Timeline
+        <Col xs={9}>
+          <Timeline />
         </Col>
       </Row>
     </Container>

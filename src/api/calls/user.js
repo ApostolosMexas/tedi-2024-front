@@ -1,5 +1,5 @@
+import axios from "axios";
 import apiHelper from "../config/apiHelper";
-import { apiBaseAxios, apiMultipartAxios } from "../config/axiosUtils";
 import { showAlertError } from "../config/exceptionHandler";
 
 export const apiCallsUser = {
@@ -22,11 +22,34 @@ export const apiCallsUser = {
         return await apiHelper.post(
           'users/',
           formData,
-          apiMultipartAxios
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "multipart/form-data",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            },
+          })
         );
       } catch (error) {
         console.log(error);
         showAlertError("Η δημιουργία νέου χρήστη ήταν ανεπιτυχής", error);
+      }
+    },
+    getUser: async (userId) => {
+      try {
+        return await apiHelper.get(
+          `users/${userId}`,
+          {},
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+      } catch (error) {
+        showAlertError("Η ανάκτηση του δικτύου ήταν ανεπιτυχής", error);
       }
     },
     getNetwork: async (userId) => {
@@ -34,10 +57,33 @@ export const apiCallsUser = {
         return await apiHelper.get(
           `users/${userId}/network`,
           {},
-          apiBaseAxios
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
         );
       } catch (error) {
         showAlertError("Η ανάκτηση του δικτύου ήταν ανεπιτυχής", error);
+      }
+    },
+    getTimeline: async (userId) => {
+      try {
+        return await apiHelper.get(
+          `users/${userId}/timeline`,
+          {},
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+      } catch (error) {
+        showAlertError("Η ανάκτηση του χρονολογίου ήταν ανεπιτυχής", error);
       }
     },
   },
