@@ -109,7 +109,7 @@ export const apiCallsData = {
        } catch (error) {
         showAlertError("Η δημιουργία δημοσίευσης ήταν ανεπιτυχής", error);
       }
-    }
+    },
     addPost: async (userId, newPost) => {
       try {
         const formData = new FormData();
