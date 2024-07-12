@@ -27,10 +27,14 @@ const Login = () => {
     try{
       const response = await apiCallsAuth.Authentication.login(email, password);
       const data = response.data;
-      dispatch(loginSuccess({userId: data.UserId, accessToken: data.AccessToken}));
-      navigate('/index/');
+      dispatch(loginSuccess({userId: data.UserId, accessToken: data.AccessToken, userRoleId:data.UserRoleId}));
     } catch (error) {
       console.error("Error logging in:", error);
+    }
+    if(localStorage.getItem('userRole') === '1f79b81e-f067-4ea0-854f-3c9490b498eb'){
+      navigate('/index/admin');
+    }else{
+      navigate('/index/');
     }
   };
 

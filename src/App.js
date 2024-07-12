@@ -10,7 +10,6 @@ const App = () => {
       <Routes>
         <Route path="/index/*" element={<Index />}/>
         <Route path="/auth/*" element={<Auth />}/>
-        <Route path="/admin/" element={<Admin />}/>
         <Route path="*"  element={<Navigate to="/index" replace />} />
       </Routes>
     </>

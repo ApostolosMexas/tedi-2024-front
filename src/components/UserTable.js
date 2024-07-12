@@ -1,49 +1,89 @@
 import {MaterialReactTable} from 'material-react-table';
 import React, { useState, useEffect } from "react";
-// import {apiCallsUser} from "../api/calls/user"
+import {apiCallsUser} from "../api/calls/user"
+import { Button } from 'reactstrap';
+import '../assets/css/components/userTable.css';
 
 export const UserTable = (props) => {
     const [selectedRows, setSelectedRows] = useState([]);
+    const [users, setUsers] = useState([]);
 
-    const {} = props;
+  const handleCheckboxChange = (event, rowId) => {
+    console.log(selectedRows)
+    if (event.target.checked) {
+        setSelectedRows([...selectedRows, rowId]); // Add row Id to selectedRows array
+    } else {
+        setSelectedRows(selectedRows.filter(id => id !== rowId)); // Remove row Id from selectedRows array
+    }
+  };
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const response = await apiCallsUser.User.get_all_users();
+          console.log(response);
+          setUsers(response.data);
+        } catch (error) {
+          console.error("Error fetching users:", error);
+        }
+      };
+      fetchData();
+      console.log(users);
+    }, []);
+
+    const handlePdfExport = () => {
+      console.log(selectedRows);
+    };
+    const handleExcelExport = () => {
+      console.log(selectedRows);
+    };
+
+
   const columns = [
-    { accessorKey: 'id', header: 'ID', width: 70 , width: 130},
-    { accessorKey: 'firstName', header: 'First name', width: 130 },
-    { accessorKey: 'lastName', header: 'Last name', width: 130 },
-    { accessorKey: 'age', header: 'age', width: 100},
-  ]
-  const rows = [
-    { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-    { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-    { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-    { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-    { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-    { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+    {
+      accessorKey: 'checkboxes',
+      header: <input type="checkbox"/>,
+      width: 120,
+      Cell: ({ row }) => (
+        <input
+            type="checkbox"
+            checked={selectedRows.includes(row.original.Id)}
+            onChange={(e) => handleCheckboxChange(e, row.original.Id)}
+        />
+      ),
+      width: 50,
+      sortable: false,
+      headerAlign: 'center',
+      cellAlign: 'center'
+    },
+    { accessorKey: 'Name', header: 'Όνομα', width: 130 },
+    { accessorKey: 'Surname', header: 'Επώνυμο', width: 130 },
+    { accessorKey: 'Email', header: 'Email', width: 130},
+    {
+      accessorKey: 'Id',
+      header: 'Στοιχεία',
+      width: 120,
+      Cell: ({ row }) => (
+        <Button onClick={() => console.log(row.original.Id)}>Στοιχεία Χρήστη</Button>
+      )
+    }
   ];
-  const [tableData, setTableData] = useState([]);
-
-//   useEffect(() => {
-//     async function fetchData() {
-//       const response = await apiCallsUser.User.get_all_users();
-//       setTableData(response.data);
-//     }
-//     fetchData();
-//   }, []);
 
   return (
-    <MaterialReactTable
-        enableRowSelection
-        // onRowSelectionChange={setSelectedRows}
-        columns={columns}
-        data={rows}
-        enableColumnActions={false}
-        enableFullScreenToggle={false}
-        enableHiding={false}
-        enableDensityToggle={false}
-    />
+    <>
+      <div>
+        <Button className="pdf-export" onClick={() => handlePdfExport()}>Pdf Export</Button>
+        <Button className="excel-export" onClick={() => handleExcelExport()}>Excel Export</Button>
+      </div>
+
+      <MaterialReactTable
+          columns={columns}
+          data={users}
+          enableColumnActions={false}
+          enableFullScreenToggle={false}
+          enableHiding={false}
+          enableDensityToggle={false}
+      />
+    </>
   );
 };
 
