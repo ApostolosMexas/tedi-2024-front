@@ -10,6 +10,7 @@ const authSlice = createSlice({
   reducers: {
     loginSuccess(state, action) {
       state.userId = action.payload.userId;
+      localStorage.setItem("userRole", action.payload.userRoleId);
       localStorage.setItem("tedi-token", action.payload.accessToken);
     },
     logoutSuccess(state) {
