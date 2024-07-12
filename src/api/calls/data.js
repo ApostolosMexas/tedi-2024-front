@@ -62,5 +62,53 @@ export const apiCallsData = {
         showAlertError("Η διαγραφή της δήλωσης ενδιαφέροντος ήταν ανεπιτυχής", error);
       }
     },
+    getPosts: async (userId = null) =>{
+      try { 
+        return await apiHelper.get(
+          'posts',{UserId: userId},
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            },
+          })
+        );
+      } catch (error) {
+        showAlertError("Ανεπιτυχής φόρτωση άρθρων", error);
+      }
+    },
+    getComments: async (userId = null) =>{
+      try {
+        return await apiHelper.get(
+          'comments/get_all',{userId: userId},
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            },
+          })
+        );
+      } catch (error) {
+        showAlertError("Ανεπιτυχής φόρτωση σχόλιων", error);
+      }
+    },
+    getOffers: async (userId = null) =>{
+      try {
+        return await apiHelper.get(
+          'offers',{userId : userId},
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            },
+          })
+        );
+      } catch (error) {
+        showAlertError("Ανεπιτυχής φόρτωση αγγελιών", error);
+      }
+    },
   },
 };
