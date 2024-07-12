@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@atlaskit/spinner": "^16.2.0",
-    "@reduxjs/toolkit": "^2.2.6",
     "@atlaskit/spinner": "^16.0.1",
+    "@reduxjs/toolkit": "^2.2.6",
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
