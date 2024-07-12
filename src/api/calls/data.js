@@ -106,6 +106,37 @@ export const apiCallsData = {
             },
           })
         );
+       } catch (error) {
+        showAlertError("Η δημιουργία δημοσίευσης ήταν ανεπιτυχής", error);
+      }
+    }
+    addPost: async (userId, newPost) => {
+      try {
+        const formData = new FormData();
+
+        formData.append('user_id', userId);
+        formData.append('post_content', newPost.content);
+        formData.append('post_title', newPost.title);
+        newPost.files.forEach(file => {
+          if (!(
+            file.name.includes('.wav') || file.name.includes('.mp3') || file.name.includes('.docx') ||
+            file.name.includes('.pdf') || file.name.includes('.txt')
+          )) {
+            formData.append('files', file);
+          } 
+        });
+
+        return await apiHelper.post(
+          'posts/',
+          formData,
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "multipart/form-data",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            },
+          })
+        );
       } catch (error) {
         showAlertError("Ανεπιτυχής φόρτωση αγγελιών", error);
       }

@@ -8,3 +8,67 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.post-input-container {
+  position: fixed;
+  z-index: 100;
+  height: 260px;
+  bottom: 20px;
+  right: 22px;
+  left: calc(25% + 22px);
+  background-color: #fdfdff;
+  box-shadow: 0 0 0.5rem rgba(136, 152, 170, 0.075) !important;
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+}
+
+.post-input {
+  margin-top: 10px;
+}
+
+.title-input {
+  margin-top: 10px;
+}
+
+.post-input-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.show-post-input {
+  position: fixed;
+  z-index: 100;
+  height: 40px;
+  width: 40px;
+  bottom: 20px;
+  right: 22px;
+  background-color: #fdfdff;
+  box-shadow: 0 0 0.5rem rgba(136, 152, 170, 0.075) !important;
+  border-radius: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+}
+
+.plus-button {
+  width: 34px;
+  height: 34px;
+  position: relative;
+  top: 3px;
+  left: 3px;
+}
+
+.show-post-input:hover {
+  cursor: pointer;
+}
+
+.post-input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button:hover {
+  cursor: pointer;
+}
