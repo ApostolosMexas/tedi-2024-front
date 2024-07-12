@@ -84,6 +84,8 @@ export const apiCallsUser = {
         );
       } catch (error) {
         showAlertError("Η ανάκτηση του χρονολογίου ήταν ανεπιτυχής", error);
+      }
+    },
     get_all_users: async () => {
       try {
         return await apiHelper.get(

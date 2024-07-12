@@ -69,7 +69,7 @@ const Login = () => {
             </Button>
             <Button
                 className='signup-btn'
-                onClick={navigate('/auth/signup')}
+                onClick={() => navigate('/auth/signup')}
               >
               Εγγραφή
             </Button>

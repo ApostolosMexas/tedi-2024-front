@@ -139,7 +139,6 @@ const SignUp = (props) => {
               <Label>Avatar</Label>
               <input
                 type="file"
-                data-testid="file-input"
                 onChange={(e) => handleAvatarUpdate(e)}
               />
             </Form>
