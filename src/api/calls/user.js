@@ -102,5 +102,39 @@ export const apiCallsUser = {
         showAlertError("Η ανάκτηση του χρονολογίου ήταν ανεπιτυχής", error);
       }
     },
+    getChats: async (userId) => {
+      try {
+        return await apiHelper.get(
+          `users/${userId}/chats`,
+          {},
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+      } catch (error) {
+        showAlertError("Η ανάκτηση των συζητήσεων ήταν ανεπιτυχής", error);
+      }
+    },
+    getChat: async (userId, connectionId) => {
+      try {
+        return await apiHelper.get(
+          `users/${userId}/chats/${connectionId}`,
+          {},
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+      } catch (error) {
+        showAlertError("Η ανάκτηση της συζήτησης ήταν ανεπιτυχής", error);
+      }
+    },
   },
 };

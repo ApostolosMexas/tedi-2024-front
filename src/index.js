@@ -18,10 +18,10 @@ const LoadingIndicator = () => {
 root.render(
   <Provider store={store}>
     <LoadingIndicator />
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
   </Provider>
 );
