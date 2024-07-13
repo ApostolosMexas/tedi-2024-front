@@ -92,6 +92,23 @@ export const apiCallsData = {
       } catch (error) {
         showAlertError("Η δημιουργία δημοσίευσης ήταν ανεπιτυχής", error);
       }
-    }
+    },
+    sendMessage: async (message) => {
+      try {
+        return await apiHelper.post(
+          'direct_messages/',
+          message,
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            },
+          })
+        );
+      } catch (error) {
+        showAlertError("Η αποστολή του μηνύματος ήταν ανεπιτυχής", error);
+      }
+    },
   },
 };

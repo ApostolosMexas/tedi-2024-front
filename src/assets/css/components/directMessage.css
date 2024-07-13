@@ -1,0 +1,67 @@
+.dm-container-received {
+  display: flex;
+  flex-direction: row;
+  align-items:flex-end;
+  gap: 20px;
+  
+  img {
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+    border: 1px solid gray;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .dm-bubble {
+    background-color: rgba(226, 227, 236, 0.5);
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 40%;
+  }
+}
+
+.dm-container-sent {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items:flex-end;
+  gap: 20px;
+  margin-right: 10px;
+  
+  img {
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+    border: 1px solid gray;
+  }
+
+  p {
+    margin: 0;
+    color: #fff;
+  }
+
+  .dm-bubble {
+    background-color: rgb(58, 58, 201);
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 40%;
+  }
+}
+
+.dm-input-container {
+  position: fixed;
+  z-index: 100;
+  height: 60px;
+  bottom: 20px;
+  right: 32px;
+  left: calc(25% + 32px);
+  display: flex;
+  gap: 10px;
+}
+
+.dm-send {
+  background-color: rgb(58, 58, 201) !important;
+  transition: all 0.1s ease !important;
+}

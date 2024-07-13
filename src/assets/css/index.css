@@ -2,6 +2,8 @@
 
 .index-container {
   padding: 0 !important;
+  overflow-x: hidden;
+
   h1, h2, h3, h4, h5, h6, .main-content {
     margin: 0 !important;
   }

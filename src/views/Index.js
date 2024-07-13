@@ -8,7 +8,8 @@ import Home from './Home';
 import NetworkView from './NetworkView';
 import User from '../components/User';
 import "../assets/css/index.css";
-import Admin from "../views/Admin"
+import Admin from "../views/Admin";
+import Chats from './Chats';
 
 const Index = ({}) => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const Index = ({}) => {
     <Container className='index-container' fluid>
       <div className='top-navbar'>
         <div className='nav-container'>
-          <h3>LinkedIn</h3>
+          <h3>LockedIn</h3>
           <div className='nav'>
             {userRoleId === 'c20d8929-fc91-4e48-92a0-bb3b3fff55e1' &&
             <>
@@ -58,6 +59,9 @@ const Index = ({}) => {
         {/* <Route path='/login' element={<Login />} /> */}
         <Route path='/home' element={<Home />} />
         <Route path='/network' element={<NetworkView />} />
+        <Route path='/chats' element={<Chats />}>
+          <Route path=':connectionId' element={<Chats />} />
+        </Route>
         <Route path='/user/:id' element={<User />} />
         <Route path="/admin" element={<Admin />}/>
         <Route path='*' element={<Navigate to="/index/home" replace />} />
