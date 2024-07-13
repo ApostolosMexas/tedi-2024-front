@@ -21,7 +21,7 @@ export const apiCallsData = {
           })
         );
       } catch (error) {
-        showAlertError("Η δήλωση ενδιαφέροντος ήταν ανεπιτυχής", error);
+        showAlertError('error', "Η δήλωση ενδιαφέροντος ήταν ανεπιτυχής", error);
       }
     },
     unlikePost: async (likeId) => {
@@ -38,7 +38,7 @@ export const apiCallsData = {
           })
         );
       } catch (error) {
-        showAlertError("Η διαγραφή της δήλωσης ενδιαφέροντος ήταν ανεπιτυχής", error);
+        showAlertError('error', "Η διαγραφή της δήλωσης ενδιαφέροντος ήταν ανεπιτυχής", error);
       }
     },
     addComment: async (postId, userId, text) => {
@@ -59,7 +59,7 @@ export const apiCallsData = {
           })
         );
       } catch (error) {
-        showAlertError("Η διαγραφή της δήλωσης ενδιαφέροντος ήταν ανεπιτυχής", error);
+        showAlertError('error', "Η διαγραφή της δήλωσης ενδιαφέροντος ήταν ανεπιτυχής", error);
       }
     },
     getPosts: async (userId = null) =>{
@@ -75,7 +75,7 @@ export const apiCallsData = {
           })
         );
       } catch (error) {
-        showAlertError("Ανεπιτυχής φόρτωση άρθρων", error);
+        showAlertError('error', "Ανεπιτυχής φόρτωση άρθρων", error);
       }
     },
     getComments: async (userId = null) =>{
@@ -91,7 +91,7 @@ export const apiCallsData = {
           })
         );
       } catch (error) {
-        showAlertError("Ανεπιτυχής φόρτωση σχόλιων", error);
+        showAlertError('error', "Ανεπιτυχής φόρτωση σχόλιων", error);
       }
     },
     getOffers: async (userId = null) =>{
@@ -107,7 +107,7 @@ export const apiCallsData = {
           })
         );
        } catch (error) {
-        showAlertError("Η δημιουργία δημοσίευσης ήταν ανεπιτυχής", error);
+        showAlertError('error', "Η δημιουργία δημοσίευσης ήταν ανεπιτυχής", error);
       }
     },
     addPost: async (userId, newPost) => {
@@ -138,7 +138,7 @@ export const apiCallsData = {
           })
         );
       } catch (error) {
-        showAlertError("Ανεπιτυχής φόρτωση αγγελιών", error);
+        showAlertError('error', "Ανεπιτυχής φόρτωση αγγελιών", error);
       }
     },
     sendMessage: async (message) => {
@@ -155,7 +155,7 @@ export const apiCallsData = {
           })
         );
       } catch (error) {
-        showAlertError("Η αποστολή του μηνύματος ήταν ανεπιτυχής", error);
+        showAlertError('error', "Η αποστολή του μηνύματος ήταν ανεπιτυχής", error);
       }
     },
   },
