@@ -11,6 +11,7 @@ import "../assets/css/index.css";
 import Admin from "../views/Admin";
 import Chats from './Chats';
 import Settings from './Settings';
+import Notifications from './Notifications';
 
 const Index = ({}) => {
   const dispatch = useDispatch();
@@ -64,6 +65,7 @@ const Index = ({}) => {
           <Route path=':connectionId' element={<Chats />} />
         </Route>
         <Route path='/user/:id' element={<User />} />
+        <Route path="/notifications" element={<Notifications />}/>
         <Route path="/settings" element={<Settings />}/>
         <Route path="/admin" element={<Admin />}/>
         <Route path='*' element={<Navigate to="/index/home" replace />} />

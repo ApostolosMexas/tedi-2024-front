@@ -1,0 +1,15 @@
+.post-activity-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.post-activity-item:hover {
+  background-color: rgba(226, 227, 236, 0.5);
+}

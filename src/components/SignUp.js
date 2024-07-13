@@ -104,6 +104,7 @@ const SignUp = (props) => {
                 type="input"
                 onChange={(e) => handleUserInfoUpdate('Username', e)}
                 value={userInfo.Username}
+                maxLength={20}
               />
               <Row>
                 <Col>

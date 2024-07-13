@@ -161,5 +161,56 @@ export const apiCallsUser = {
         showAlertError('error', "Η ανάκτηση της συζήτησης ήταν ανεπιτυχής", error);
       }
     },
+    getConnectionRequests: async (userId) => {
+      try {
+        return await apiHelper.get(
+          `connections?user_id=${userId}&connection_status=pending`,
+          {},
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+      } catch (error) {
+        showAlertError('error', "Η ανάκτηση της αιτημάτων σύνδεσης ήταν ανεπιτυχής", error);
+      }
+    },
+    updateConnectionRequest: async (connectionId, connectionUpdate) => {
+      try {
+        return await apiHelper.post(
+          `connections/${connectionId}`,
+          connectionUpdate,
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+      } catch (error) {
+        showAlertError('error', "Η αποδοχή του αιτήματος σύνδεσης ήταν ανεπιτυχής", error);
+      }
+    },
+    getPostActivity: async (userId, limit, page) => {
+      try {
+        return await apiHelper.get(
+          `notifications?receiver_id=${userId}&limit=${limit}&page=${page}`,
+          {},
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+      } catch (error) {
+        showAlertError('error', "Η ανάκτηση της δραστηριότητας δημοσιέυσεων ήταν ανεπιτυχής", error);
+      }
+    }
   },
 };

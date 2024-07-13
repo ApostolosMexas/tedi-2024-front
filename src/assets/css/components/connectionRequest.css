@@ -1,0 +1,38 @@
+.pending-connection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 10px;
+  min-width: 200px;
+  max-width: 200px;
+  min-height: 200px;
+  max-height: 200px;
+  padding: 10px 0;
+  border: 2px solid rgba(226, 227, 236, 0.5);
+  overflow: hidden;
+
+  img {
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    border: 1px solid gray;
+  }
+
+  img:hover, h6:hover {
+    cursor: pointer;
+  }
+
+  h6 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+  }
+}
+
+.accept-connection {
+  background-color: rgb(58, 58, 201) !important;
+  transition: all 0.1s ease !important;
+}
