@@ -6,7 +6,7 @@ import { apiCallsUser } from '../api/calls/user';
 import '../assets/css/components/network.css';
 
 const Network = (props) => {
-  const userId = useSelector((state) => state.auth.userId);
+  const userId = localStorage.getItem('userId');
   const navigate = useNavigate();
 
   const [network, setNetwork] = useState([]);

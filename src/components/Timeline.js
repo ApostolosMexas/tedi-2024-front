@@ -9,7 +9,7 @@ import plusSvg from '../assets/svg/plus.svg';
 import xSvg from '../assets/svg/x.svg';
 
 const Timeline = (props) => {
-  const userId = useSelector(state => state.auth.userId);
+  const userId = localStorage.getItem('userId');
 
   const [timeline, setTimeline] = useState([]);
   const [showPostInput, setShowPostInput] = useState(false);

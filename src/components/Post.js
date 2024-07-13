@@ -14,7 +14,7 @@ import Like from './Like';
 import Comments from './Comments';
 
 const Post = ({ post, handleComment }) => {
-  const userId = useSelector(state => state.auth.userId);
+  const userId = localStorage.getItem('userId');
   const [showComments, setShowComments] = useState(false);
   const [likeId, setLikeId] = useState(post.Likes.find((like) => {
     return like.UserId === userId;
