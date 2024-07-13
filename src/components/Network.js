@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { Card, CardBody, CardHeader } from 'reactstrap';
 import { apiCallsUser } from '../api/calls/user';
 import '../assets/css/components/network.css';
@@ -34,7 +33,7 @@ const Network = (props) => {
                 key={user.Id}
                 className='user-network-item'
                 onClick={() => {
-                  navigate(`/index/user/${user.Id}`)
+                  navigate(`/user/${userId}`)
                 }}
               >
                 <img

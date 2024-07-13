@@ -2,7 +2,6 @@ import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Index from './views/Index';
 import Auth from './views/Auth';
-import Admin from './views/Admin';
 
 const App = () => {
   return (

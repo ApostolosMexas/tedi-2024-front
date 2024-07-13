@@ -1,6 +1,7 @@
 import {MaterialReactTable} from 'material-react-table';
 import React, { useState, useEffect } from "react";
 import {apiCallsUser} from "../api/calls/user"
+import { useNavigate } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import '../assets/css/components/userTable.css';
 import * as XLSX from 'xlsx';
@@ -11,6 +12,7 @@ import {apiCallsData} from "../api/calls/data"
 export const UserTable = (props) => {
     const [selectedRows, setSelectedRows] = useState([]);
     const [users, setUsers] = useState([]);
+    const navigate = useNavigate();
 
   const handleCheckboxChange = (event, rowId) => {
     if (event.target.checked) {
@@ -18,6 +20,9 @@ export const UserTable = (props) => {
     } else {
         setSelectedRows(selectedRows.filter(id => id !== rowId)); // Remove row Id from selectedRows array
     }
+  };
+  const handleViewUserDetails = (userId) => {
+    navigate(`index/user/${userId}`);
   };
     useEffect(() => {
       async function fetchData() {
@@ -135,7 +140,7 @@ export const UserTable = (props) => {
       header: 'Στοιχεία',
       width: 120,
       Cell: ({ row }) => (
-        <Button onClick={() => console.log(row.original.Id)}>Στοιχεία Χρήστη</Button>
+        <Button onClick={() => handleViewUserDetails(row.original.Id)}>Στοιχεία Χρήστη</Button>
       )
     }
   ];

@@ -6,10 +6,10 @@ import { Navigate, Route, Routes, NavLink } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import Home from './Home';
 import NetworkView from './NetworkView';
-import User from '../components/User';
 import "../assets/css/index.css";
 import Admin from "../views/Admin";
 import Chats from './Chats';
+import UserInfo from '../views/UserInfo';
 
 const Index = ({}) => {
   const dispatch = useDispatch();
@@ -62,7 +62,10 @@ const Index = ({}) => {
         <Route path='/chats' element={<Chats />}>
           <Route path=':connectionId' element={<Chats />} />
         </Route>
-        <Route path='/user/:id' element={<User />} />
+        <Route path='/user'>
+          <Route path=':id' element={<UserInfo />} />
+        </Route>
+        {/* <Route path='/user/:id' element={<UserInfo />} /> */}
         <Route path="/admin" element={<Admin />}/>
         <Route path='*' element={<Navigate to="/index/home" replace />} />
       </Routes>
