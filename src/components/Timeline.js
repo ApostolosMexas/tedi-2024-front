@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { apiCallsUser } from '../api/calls/user';
 import '../assets/css/components/timeline.css';
-import { useSelector } from 'react-redux';
 import Post from './Post';
 import { apiCallsData } from '../api/calls/data';
 import { Button, Input } from 'reactstrap';

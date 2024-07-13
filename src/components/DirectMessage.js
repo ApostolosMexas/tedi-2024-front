@@ -1,9 +1,8 @@
 import React from 'react';
 import '../assets/css/components/directMessage.css';
-import { useSelector } from 'react-redux';
 
 const DirectMessage = ({ directMessage }) => {
-  const userId = useSelector(state => state.auth.userId);
+  const userId = localStorage.getItem('userId');;
 
   return (
     <div className={`dm-container-${userId === directMessage.Sender.Id ? 'sent' : 'received'}`}>

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { Card, CardBody, CardHeader } from 'reactstrap';
 import { apiCallsUser } from '../api/calls/user';
 import '../assets/css/components/chatSidebar.css';
 
 const ChatSidebar = ({}) => {
   const { connectionId } = useParams();
-  const userId = useSelector((state) => state.auth.userId);
+  const userId = localStorage.getItem('userId');
   const navigate = useNavigate();
 
   const [chats, setChats] = useState([]);

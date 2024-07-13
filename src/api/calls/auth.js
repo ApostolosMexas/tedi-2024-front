@@ -20,7 +20,7 @@ export const apiCallsAuth = {
           })
         );
       } catch (error) {
-        showAlertError("Η αυθεντικοποίηση ήταν ανεπιτυχής", error);
+        showAlertError('error', "Η αυθεντικοποίηση ήταν ανεπιτυχής", error);
       }
     }
   },
