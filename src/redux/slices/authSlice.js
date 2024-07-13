@@ -9,13 +9,16 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     loginSuccess(state, action) {
-      state.userId = action.payload.userId;
       localStorage.setItem("userRole", action.payload.userRoleId);
       localStorage.setItem("tedi-token", action.payload.accessToken);
+      localStorage.setItem("userId", action.payload.userId)
     },
     logoutSuccess(state) {
       state.userId = null;
       localStorage.removeItem('tedi-token');
+      localStorage.removeItem('userId');
+      localStorage.removeItem('userRole');
+
     },
   },
 });
