@@ -9,6 +9,8 @@ import NetworkView from './NetworkView';
 import "../assets/css/index.css";
 import Admin from "../views/Admin";
 import Chats from './Chats';
+import Settings from './Settings';
+import Notifications from './Notifications';
 import UserInfo from '../views/UserInfo';
 
 const Index = ({}) => {
@@ -66,6 +68,8 @@ const Index = ({}) => {
           <Route path=':id' element={<UserInfo />} />
         </Route>
         {/* <Route path='/user/:id' element={<UserInfo />} /> */}
+        <Route path="/notifications" element={<Notifications />}/>
+        <Route path="/settings" element={<Settings />}/>
         <Route path="/admin" element={<Admin />}/>
         <Route path='*' element={<Navigate to="/index/home" replace />} />
       </Routes>

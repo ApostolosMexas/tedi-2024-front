@@ -1,8 +1,8 @@
 import Swal from "sweetalert2";
 
-export const showAlertError = (text, error) => {
+export const showAlertError = (type, text, error) => {
   Swal.fire({
-    icon: "error",
+    icon: type,
     text: error?.response?.data.detail,
     title: text,
   });

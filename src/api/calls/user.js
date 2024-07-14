@@ -17,7 +17,7 @@ export const apiCallsUser = {
           })
         );
       } catch (error) {
-        showAlertError("Αδυναμία φόρτωσης χρηστών", error);
+        showAlertError('error', "Αδυναμία φόρτωσης χρηστών", error);
       }
     },
     signup: async (email, password, userInfo) => {
@@ -48,8 +48,33 @@ export const apiCallsUser = {
         );
       } catch (error) {
         console.log(error);
-        showAlertError("Η δημιουργία νέου χρήστη ήταν ανεπιτυχής", error);
+        showAlertError('error', "Η δημιουργία νέου χρήστη ήταν ανεπιτυχής", error);
       }
+    },
+    updateUser: async (userId, email, password, userUpdate) => {
+      try {
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
+        formData.append('user_update', JSON.stringify(userUpdate));
+
+        const response = await apiHelper.post(
+          `users/${userId}`,
+          formData,
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "multipart/form-data",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+        
+        showAlertError('success', "Η ενημέρωση των στοιχείων ήταν επιτυχής", '');
+        return response;
+      } catch (error) {
+        showAlertError('error', "Η ενημέρωση των στοιχείων ήταν ανεπιτυχής", error);
+      } 
     },
     getUser: async (userId) => {
       try {
@@ -65,7 +90,7 @@ export const apiCallsUser = {
           })
         );
       } catch (error) {
-        showAlertError("Η ανάκτηση του δικτύου ήταν ανεπιτυχής", error);
+        showAlertError('error', "Η ανάκτηση του δικτύου ήταν ανεπιτυχής", error);
       }
     },
     getNetwork: async (userId) => {
@@ -82,7 +107,7 @@ export const apiCallsUser = {
           })
         );
       } catch (error) {
-        showAlertError("Η ανάκτηση του δικτύου ήταν ανεπιτυχής", error);
+        showAlertError('error', "Η ανάκτηση του δικτύου ήταν ανεπιτυχής", error);
       }
     },
     getTimeline: async (userId) => {
@@ -99,7 +124,7 @@ export const apiCallsUser = {
           })
         );
       } catch (error) {
-        showAlertError("Η ανάκτηση του χρονολογίου ήταν ανεπιτυχής", error);
+        showAlertError('error', "Η ανάκτηση του χρονολογίου ήταν ανεπιτυχής", error);
       }
     },
     getChats: async (userId) => {
@@ -116,7 +141,7 @@ export const apiCallsUser = {
           })
         );
       } catch (error) {
-        showAlertError("Η ανάκτηση των συζητήσεων ήταν ανεπιτυχής", error);
+        showAlertError('error', "Η ανάκτηση των συζητήσεων ήταν ανεπιτυχής", error);
       }
     },
     getChat: async (userId, connectionId) => {
@@ -133,8 +158,59 @@ export const apiCallsUser = {
           })
         );
       } catch (error) {
-        showAlertError("Η ανάκτηση της συζήτησης ήταν ανεπιτυχής", error);
+        showAlertError('error', "Η ανάκτηση της συζήτησης ήταν ανεπιτυχής", error);
       }
     },
+    getConnectionRequests: async (userId) => {
+      try {
+        return await apiHelper.get(
+          `connections?user_id=${userId}&connection_status=pending`,
+          {},
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+      } catch (error) {
+        showAlertError('error', "Η ανάκτηση της αιτημάτων σύνδεσης ήταν ανεπιτυχής", error);
+      }
+    },
+    updateConnectionRequest: async (connectionId, connectionUpdate) => {
+      try {
+        return await apiHelper.post(
+          `connections/${connectionId}`,
+          connectionUpdate,
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+      } catch (error) {
+        showAlertError('error', "Η αποδοχή του αιτήματος σύνδεσης ήταν ανεπιτυχής", error);
+      }
+    },
+    getPostActivity: async (userId, limit, page) => {
+      try {
+        return await apiHelper.get(
+          `notifications?receiver_id=${userId}&limit=${limit}&page=${page}`,
+          {},
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+      } catch (error) {
+        showAlertError('error', "Η ανάκτηση της δραστηριότητας δημοσιέυσεων ήταν ανεπιτυχής", error);
+      }
+    }
   },
 };

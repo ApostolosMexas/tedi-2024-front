@@ -2,14 +2,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import { apiCallsUser } from '../api/calls/user';
 import { apiCallsData } from '../api/calls/data';
 import '../assets/css/components/chat.css';
-import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import DirectMessage from './DirectMessage';
 import { Input, Button } from 'reactstrap';
 
 const Chat = ({}) => {
   const { connectionId } = useParams();
-  const userId = useSelector(state => state.auth.userId);
+  const userId = localStorage.getItem('userId');;
   const [chat, setChat] = useState({});
   const [newMessageText, setNewMessageText] = useState('');
   const divRef = useRef(null);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Card, CardBody, CardHeader } from 'reactstrap';
 import LightGallery from 'lightgallery/react';
 import 'lightgallery/css/lightgallery.css';
@@ -7,7 +7,6 @@ import 'lightgallery/css/lg-thumbnail.css';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
 import '../assets/css/components/post.css';
-import { useSelector } from 'react-redux';
 import { apiCallsData } from '../api/calls/data';
 import chatBlank from '../assets/svg/chat.svg';
 import Like from './Like';
