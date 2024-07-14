@@ -10,7 +10,7 @@ export const Table = (props) => {
     const navigate = useNavigate();
 
     const handleViewUserDetails = (userId) => {
-      navigate(`index/user/${userId}`);
+      navigate(`/index/user${userId}`);
     };
 
     useEffect(() => {

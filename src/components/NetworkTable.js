@@ -12,7 +12,7 @@ export const NetworkTable = (userId) => {
     const navigate = useNavigate();
 
     const handleViewUserDetails = (userId) => {
-      navigate(`index/user/${userId}`);
+      navigate(`/index/user/${userId}`);
     };
 
     useEffect(() => {

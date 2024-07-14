@@ -22,7 +22,7 @@ export const UserTable = (props) => {
     }
   };
   const handleViewUserDetails = (userId) => {
-    navigate(`index/user/${userId}`);
+    navigate(`/index/user/${userId}`);
   };
     useEffect(() => {
       async function fetchData() {
