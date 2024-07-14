@@ -14,7 +14,7 @@ const Notifications = () => {
   const limit = 10;
 
   const fetchConnectionRequests = async () => {
-    const response = await apiCallsUser.User.getConnectionRequests(userId);
+    const response = await apiCallsUser.User.getConnectionRequests(userId, 'pending');
     setConnectionRequests(response.data);
   };
 

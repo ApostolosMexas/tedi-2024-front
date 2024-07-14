@@ -161,10 +161,10 @@ export const apiCallsUser = {
         showAlertError('error', "Η ανάκτηση της συζήτησης ήταν ανεπιτυχής", error);
       }
     },
-    getConnectionRequests: async (userId) => {
+    getConnectionRequests: async (userId, status) => {
       try {
         return await apiHelper.get(
-          `connections?user_id=${userId}&connection_status=pending`,
+          `connections?user_id=${userId}&connection_status=${status}`,
           {},
           axios.create({
             baseURL: process.env.REACT_APP_API_LINK,
@@ -211,6 +211,23 @@ export const apiCallsUser = {
       } catch (error) {
         showAlertError('error', "Η ανάκτηση της δραστηριότητας δημοσιέυσεων ήταν ανεπιτυχής", error);
       }
-    }
+    },
+    createConnectionRequest: async (request) => {
+      try {
+        return await apiHelper.post(
+          "connections/",
+          request,
+          axios.create({
+            baseURL: process.env.REACT_APP_API_LINK,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('tedi-token')}`,
+            }
+          })
+        );
+      } catch (error) {
+        showAlertError('error', "Η δημιουργία αιτήματος σύνδεσης ήταν ανεπιτυχής", error);
+      }
+    },
   },
 };

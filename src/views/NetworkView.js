@@ -10,7 +10,7 @@ const NetworkView = (props) => {
     <Container className='main-content' fluid>
       <Row>
         <Col xs={3}>
-          <Network />
+          <Network userId={userId}/>
         </Col>
         <Col xs={9}> 
           <h2>Συνδεδεμένοι Επαγγελματίες</h2>

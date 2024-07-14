@@ -4,8 +4,7 @@ import { Card, CardBody, CardHeader } from 'reactstrap';
 import { apiCallsUser } from '../api/calls/user';
 import '../assets/css/components/network.css';
 
-const Network = (props) => {
-  const userId = localStorage.getItem('userId');
+const Network = ({ userId }) => {
   const navigate = useNavigate();
 
   const [network, setNetwork] = useState([]);
@@ -33,7 +32,7 @@ const Network = (props) => {
                 key={user.Id}
                 className='user-network-item'
                 onClick={() => {
-                  navigate(`/index/user/${userId}`)
+                  navigate(`/index/user/${user.Id}`)
                 }}
               >
                 <img
