@@ -33,14 +33,14 @@ const Network = (props) => {
                 key={user.Id}
                 className='user-network-item'
                 onClick={() => {
-                  navigate(`/index/user/${user.Id}`)
+                  navigate(`/index/user/${userId}`)
                 }}
               >
                 <img
                   src={`${process.env.REACT_APP_API_LINK}users/uploads/${user.Avatar}`}
                   alt="User Avatar"
                 />
-                <p to={`/user/${user.Id}`} className='nav-link'>{user.Username}</p>
+                <p to={`/index/user/${user.Id}`} className='nav-link'>{user.Username}</p>
               </div>
             )
           })
@@ -49,5 +49,5 @@ const Network = (props) => {
     </Card>
   );
 }
- 
+
 export default Network;

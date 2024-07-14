@@ -2,10 +2,16 @@ import {MaterialReactTable} from 'material-react-table';
 import React, { useState, useEffect } from "react";
 import {apiCallsUser} from "../api/calls/user"
 import { Button } from 'reactstrap';
+import { useNavigate } from 'react-router-dom';
 import '../assets/css/components/userTable.css';
 
 export const Table = (props) => {
     const [users, setUsers] = useState([]);
+    const navigate = useNavigate();
+
+    const handleViewUserDetails = (userId) => {
+      navigate(`/index/user${userId}`);
+    };
 
     useEffect(() => {
       async function fetchData() {
@@ -30,7 +36,7 @@ export const Table = (props) => {
       header: 'Στοιχεία',
       width: 120,
       Cell: ({ row }) => (
-        <Button onClick={() => console.log(row.original.Id)}>Στοιχεία Χρήστη</Button>
+        <Button onClick={() => handleViewUserDetails(row.original.Id)}>Στοιχεία Χρήστη</Button>
       )
     }
   ];

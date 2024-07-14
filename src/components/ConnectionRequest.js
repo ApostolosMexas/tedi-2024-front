@@ -29,10 +29,10 @@ const ConnectionRequest = ({ request }) => {
       <img
         src={`${process.env.REACT_APP_API_LINK}users/uploads/${request.User.Avatar}`}
         alt="User Avatar"
-        onClick={() => navigate(`index/user/${request.User.Id}`)}
+        onClick={() => navigate(`/index/user/${request.User.Id}`)}
       />
       <h6  
-        onClick={() => navigate(`index/user/${request.User.Id}`)}
+        onClick={() => navigate(`/index/user/${request.User.Id}`)}
       >
         {request.User.Username}
       </h6>
